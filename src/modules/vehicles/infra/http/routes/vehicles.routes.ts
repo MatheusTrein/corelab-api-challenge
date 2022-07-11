@@ -7,6 +7,7 @@ import { UpdateVehicleController } from "@modules/vehicles/useCases/updateVehicl
 import { ListAllVehiclesController } from "@modules/vehicles/useCases/listAllVehicles/ListAllVehiclesController";
 import { DeleteVehicleController } from "@modules/vehicles/useCases/deleteVehicle/DeleteVehicleController";
 import { ListAllColorsController } from "@modules/vehicles/useCases/listAllColors/ListAllColorsControllers";
+import { FavoriteVehicleController } from "@modules/vehicles/useCases/favoriteVehicle/FavoriteVehicleController";
 
 const plateRegEx = /[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/;
 
@@ -16,6 +17,7 @@ const listAllVehiclesUseCase = new ListAllVehiclesController();
 const listAllBrandsController = new ListAllBrandsController();
 const listAllColorsController = new ListAllColorsController();
 const deleteVehicleController = new DeleteVehicleController();
+const favoriteVehicleController = new FavoriteVehicleController();
 
 const vehiclesRouter = Router();
 
@@ -71,6 +73,16 @@ vehiclesRouter.get(
 
 vehiclesRouter.get("/brands", listAllBrandsController.handle);
 vehiclesRouter.get("/colors", listAllColorsController.handle);
+
+vehiclesRouter.patch(
+  "/favorite/:id",
+  celebrate({
+    [Segments.PARAMS]: Joi.object({
+      id: Joi.number().required(),
+    }),
+  }),
+  favoriteVehicleController.handle
+);
 
 vehiclesRouter.delete(
   "/:id",

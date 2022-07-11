@@ -68,5 +68,8 @@ Ao invés de utilizar um arquivo textual para explicar, para esclarecer melhor e
 
 [https://www.loom.com/share/c8b022561ffd4b838fc9e35973658698](https://www.loom.com/share/c8b022561ffd4b838fc9e35973658698)
 
+*Atualização 11/07/2022:
+  - Funcionalida de favoritar veículo implementada (Foi esquecida antes de enviar o desafio, por isso não está no vídeo).
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
